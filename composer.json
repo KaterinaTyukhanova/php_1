@@ -1,0 +1,22 @@
+{
+    "name": "katerinatyukhanova/php_1",
+    "description": "Simple mvc framework",
+    "type": "project",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "KaterinaTyukhanova",
+            "email": "klimovafiona@gmail.com"
+        }
+    ],
+    "minimum-stability": "dev",
+    "require": {
+        "php": "^7.4 | ^8.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "Src\\": "core/Src/",
+            "": "app/"
+        }
+    }
+}
