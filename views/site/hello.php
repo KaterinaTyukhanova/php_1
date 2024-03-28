@@ -1,10 +1,14 @@
 <div class="main-div">
+    <div class="conteiner">
+        <p class="main-div-text">Вы находитесь на главной странице!</p>
+        <p class="main-div-text">Нажмите на ссылки, представленные ниже, чтобы перейти к нужной вам функции.</p>
+    </div>
     <div>
         <ul>
             <?php
             if(app()->auth::checkAdmin()):
                 ?>
-                <li><a href="<?= app()->route->getUrl('/signup') ?>">Добавление нового пользователя</a></li>
+                <li><a href="<?= app()->route->getUrl('/signup') ?>" class="text-ssilka">Добавление нового пользователя</a></li>
             <?php
             else:
                 ?>
@@ -19,9 +23,6 @@
             ?>
         </ul>
     </div>
-
-    <p>In a dapibus nulla. Aenean erat orci, egestas non orci at, varius tempus risus. Ut suscipit lorem magna, quis auctor leo molestie ac. Integer ut efficitur neque. Curabitur sollicitudin ipsum dolor, et tempus massa lacinia a. Donec efficitur egestas facilisis. Aliquam feugiat convallis arcu quis sollicitudin. Nullam eleifend iaculis sapien id scelerisque.</p>
-
 </div>
 
 
@@ -33,12 +34,24 @@
         font-size: 22px;
         font-weight: 200;
     }
-    p {
-        font-size: 22px;
-        max-width: 500px;
-    }
     .main-div {
         display: flex;
         justify-content: space-around;
+        flex-direction: column;
+        align-items: center;
+        gap: 10px;
+        margin-bottom: 10px;
+        min-height: 373px;
+    }
+    .main-div-text {
+        font-size: 24px;
+        font-weight: 300;
+        color: #071F5A;
+    }
+    .conteiner {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin-top: 10px;
     }
 </style>

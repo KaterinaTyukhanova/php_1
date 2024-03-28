@@ -22,31 +22,28 @@
             background-color: #7596EA;
             height: 100%;
             width: 100%;
-            justify-content: space-around;
             align-items: center;
+            justify-content: space-around;
         }
         nav {
             display: flex;
             padding: 20px;
             align-items: center;
-            justify-content: space-between;
+            justify-content: space-around;
         }
         a{
             text-decoration: none;
             color: #071F5A;
-            font-family: "Arial";
             font-size: 26px;
             font-weight: bold;
         }
         header{
             width: 100%;
         }
-        .slogan {
-            width: 600px;
-        }
         .text {
-            font-size: 24px;
+            font-size: 20px;
             color: #071F5A;
+            font-weight: bold;
         }
         a:hover {
             text-decoration: underline;
@@ -84,7 +81,7 @@
         <p class="text">Телефон отдела: +7 (3822) 65-23-45</p>
     </div>
 
-    <div class="slogan text">In a dapibus nulla. Aenean erat orci, egestas non orci at, varius tempus risus. Ut suscipit lorem magna, quis auctor leo molestie ac. </div>
+    <div class="slogan text">Мы находим, вы выбираете!</div>
 
 </footer>
 

@@ -1,14 +1,12 @@
 <style>
     select {
-        width: 517px;
-        height: 53px;
-        border: solid 2px black;
-        background-color: #F5F5F5;
+        width: 400px;
+        height: 40px;
+        border: solid 2px #071F5A;
     }
     button{
-        padding: 20px 50px;
-        border: solid 2px black;
-        background-color: #F5F5F5;
+        padding: 10px 20px;
+        border: solid 2px #071F5A;
         margin-bottom: 40px;
         text-align: center;
     }
@@ -25,16 +23,10 @@
         align-items: center;
         margin: 100px 0px;
     }
-    p {
+    .sred-age-text{
         font-size: 30px;
         font-weight: bold;
-    }
-    .age-div {
-        padding: 10px;
-        width: 50px;
-        border: solid 2px black;
-        background-color: #F5F5F5;
-        text-align: center;
+        color: #071F5A;
     }
     .sred-age {
         display: flex;
@@ -43,6 +35,7 @@
     }
     ul {
         list-style-type: circle;
+        color: #071F5A;
     }
 </style>
 
@@ -58,7 +51,7 @@
     </div>
 
     <div class="sred-age">
-        <p>Название подразделения:</p>
+        <p class="sred-age-text">Название подразделения:</p>
         <ul>
             <li>Иванов Иван Иванович</li>
             <li>Петрова Марина Викторовна</li>

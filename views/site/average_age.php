@@ -1,14 +1,12 @@
 <style>
     select {
-        width: 517px;
-        height: 53px;
-        border: solid 2px black;
-        background-color: #F5F5F5;
+        width: 400px;
+        height: 40px;
+        border: solid 2px #071F5A;
     }
     button{
-        padding: 20px 50px;
-        border: solid 2px black;
-        background-color: #F5F5F5;
+        padding: 10px 20px;
+        border: solid 2px #071F5A;
         margin-bottom: 40px;
         text-align: center;
     }
@@ -23,18 +21,20 @@
         gap: 200px;
         justify-content: center;
         align-items: center;
-        margin: 100px 0px;
+        margin: 115px auto;
+        max-height: 550px;
     }
-    p {
+    .sred-age-text {
         font-size: 30px;
         font-weight: bold;
+        color: #071F5A;
     }
     .age-div {
         padding: 10px;
         width: 50px;
-        border: solid 2px black;
-        background-color: #F5F5F5;
+        border: solid 2px #071F5A;
         text-align: center;
+        font-weight: bold;
     }
     .sred-age {
         display: flex;
@@ -55,7 +55,7 @@
     </div>
 
     <div class="sred-age">
-        <p>Средний возраст подразделения:</p>
+        <p class="sred-age-text">Средний возраст подразделения:</p>
         <div class="age-div">0</div>
     </div>
 </div>

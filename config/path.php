@@ -1,7 +1,7 @@
 <?php
 return [
 
-    'root' => '',
+    'root' => 'php_1',
 
     'routes' => 'routes',
 
