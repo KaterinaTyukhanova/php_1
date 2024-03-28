@@ -35,10 +35,7 @@
     }
 </style>
 
-<h3><?= app()->auth->user()->name ?? ''; ?></h3>
-<?php
-if (!app()->auth::check()):
-?>
+
 <div class="login-form">
     <p class="text-login">Регистрация нового пользователя</p>
     <form method="post">
@@ -48,4 +45,3 @@ if (!app()->auth::check()):
         <button>Добавить</button>
     </form>
 </div>
-<?php endif;

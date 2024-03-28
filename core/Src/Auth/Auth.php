@@ -51,4 +51,20 @@ class Auth
         return true;
     }
 
+    public static function checkAdmin(): bool
+    {
+        if(self::$user->getIdRole() == 1){
+            return true;
+        }
+        return false;
+    }
+
+    public static function checkWorker(): bool
+    {
+        if(self::$user->getIdRole() == 2){
+            return true;
+        }
+        return false;
+    }
+
 }
