@@ -30,22 +30,20 @@
         gap: 59px;
     }
     .text-login {
-        font-size: 36px;
+        font-size: 30px;
         font-weight: bold;
     }
 </style>
 
-<h3><?= app()->auth->user()->name ?? ''; ?></h3>
-<?php
-if (!app()->auth::check()):
-?>
 <div class="login-form">
-    <p class="text-login">Регистрация нового пользователя</p>
+    <p class="text-login">Прикрепить сотрудника к подразделению</p>
     <form method="post">
-        <input type="text" name="name" placeholder="Name">
-        <input type="text" name="login" placeholder="Login">
-        <input type="password" name="password" placeholder="Password">
-        <button>Добавить</button>
+        <select name="surname">
+            <option disabled selected>Выбор сотрудника</option>
+        </select>
+        <select name="name">
+            <option disabled selected>Выбор подразделения</option>
+        </select>
+        <button>Прикрепить</button>
     </form>
 </div>
-<?php endif;
