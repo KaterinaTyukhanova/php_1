@@ -7,6 +7,9 @@ use Src\View;
 use Src\Request;
 use Model\User;
 use Src\Auth\Auth;
+use Model\Department;
+use Model\Worker;
+
 
 class Site
 {
@@ -18,13 +21,25 @@ class Site
 
     public function hello(): string
     {
-        return new View('site.hello', ['message' => 'hello working']);
+        return new View('site.hello');
+    }
+
+    public function allDepartments(): string
+    {
+        $departments = Department::all();
+        return new View('site.all_departments', ['departments' => $departments]);
+    }
+
+    public function allWorkers(): string
+    {
+        $workers = Worker::all();
+        return new View('site.all_workers', ['workers' => $workers]);
     }
 
     public function signup(Request $request): string
     {
         if ($request->method === 'POST' && User::create($request->all())) {
-            app()->route->redirect('/go');
+            app()->route->redirect('/hello');
         }
         return new View('site.signup');
     }
@@ -46,6 +61,16 @@ class Site
     {
         Auth::logout();
         app()->route->redirect('/hello');
+    }
+
+    public function addWorker(): string
+    {
+        return new View('site.add_worker');
+    }
+
+    public function addDepartment(): string
+    {
+        return new View('site.add_department');
     }
 
 }

@@ -1,5 +1,5 @@
 <style>
-    input, select{
+    input, select {
         width: 517px;
         height: 53px;
         border: solid 2px black;
@@ -14,7 +14,7 @@
     .login-form{
         width: 100%;
         height: 100%;
-        max-height: 600px;
+        max-height: 500px;
         max-width: 650px;
         border-radius: 34px;
         background-color: #D9D9D9;
@@ -35,24 +35,14 @@
     }
 </style>
 
-<h3><?= app()->auth->user()->name ?? ''; ?></h3>
-<?php
-if (!app()->auth::check()):
-?>
+
 <div class="login-form">
-    <p class="text-login">Регистрация</p>
+    <p class="text-login">Добавить подразделение</p>
     <form method="post">
-        <input type="text" name="login" placeholder="Login">
-        <input type="password" name="password" placeholder="Password">
-        <select name="id_role">
-            <option disabled selected>Role</option>
-            <?php
-            foreach ($roles as $role) {
-                echo '<option value="">' . $role->id . '</option>';
-            }
-            ?>
+        <input type="text" name="name" placeholder="Name">
+        <select name="id_type">
+            <option disabled selected>Type of department</option>
         </select>
-        <button>Зарегистрироваться</button>
+        <button>Добавить</button>
     </form>
 </div>
-<?php endif;
