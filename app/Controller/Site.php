@@ -9,7 +9,6 @@ use Model\User;
 use Src\Auth\Auth;
 use Model\Department;
 use Model\Worker;
-use Model\Role;
 
 
 class Site
@@ -39,11 +38,10 @@ class Site
 
     public function signup(Request $request): string
     {
-        $roles = Role::all();
         if ($request->method === 'POST' && User::create($request->all())) {
             app()->route->redirect('/hello');
         }
-        return new View('site.signup', ['roles' => $roles]);
+        return new View('site.signup', ['message' => 'Произошла ошибка при регистрации']);
     }
 
     public function login(Request $request): string

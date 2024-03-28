@@ -27,14 +27,14 @@
         align-items: center;
         gap: 30px;
     }
-    .text-login {
+    .text-login, h4 {
         font-size: 36px;
         font-weight: bold;
         color: #071F5A;
     }
 </style>
 
-<h3><?= app()->auth->user()->name ?? ''; ?></h3>
+<h4><?= $message ?? ''; ?></h4>
 <?php
 if (!app()->auth::check()):
     ?>
