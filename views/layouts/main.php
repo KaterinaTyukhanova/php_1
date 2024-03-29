@@ -29,6 +29,7 @@
             align-items: center;
             justify-content: space-around;
             max-width: 150%;
+            max-height: 150px;
         }
         nav {
             display: flex;
