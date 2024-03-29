@@ -27,14 +27,13 @@
         align-items: center;
         gap: 30px;
     }
-    .text-login, h4{
+    .text-login {
         font-size: 30px;
         font-weight: bold;
         color: #071F5A;
     }
 </style>
 
-<h4><?= $message ?? ''; ?></h4>
 <div class="login-form">
     <p class="text-login">Регистрация нового пользователя</p>
     <form method="post">

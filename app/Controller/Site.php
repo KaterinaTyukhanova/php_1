@@ -41,7 +41,7 @@ class Site
         if ($request->method === 'POST' && User::create($request->all())) {
             app()->route->redirect('/hello');
         }
-        return new View('site.signup', ['message' => 'Произошла ошибка при регистрации']);
+        return new View('site.signup');
     }
 
     public function login(Request $request): string
