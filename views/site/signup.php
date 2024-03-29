@@ -12,7 +12,7 @@
     .login-form{
         width: 100%;
         height: 100%;
-        max-height: 1000px;
+        max-height: 420px;
         max-width: 500px;
         border-radius: 34px;
         background-color: #99B3F4;

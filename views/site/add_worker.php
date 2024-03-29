@@ -19,7 +19,7 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 100px auto;
+        margin: 50px auto;
     }
     form{
         display: flex;

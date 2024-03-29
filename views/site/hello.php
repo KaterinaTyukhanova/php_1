@@ -41,7 +41,6 @@
         align-items: center;
         gap: 10px;
         margin-bottom: 10px;
-        min-height: 373px;
     }
     .main-div-text {
         font-size: 24px;

@@ -11,6 +11,10 @@
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            height: 100%;
+        }
+        html {
+            height: 100%;
         }
         .head {
             background-color: #7596EA;
@@ -24,6 +28,7 @@
             width: 100%;
             align-items: center;
             justify-content: space-around;
+            max-width: 150%;
         }
         nav {
             display: flex;
@@ -48,6 +53,14 @@
         a:hover {
             text-decoration: underline;
         }
+        .main-class {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+        }
     </style>
 </head>
 <body>
@@ -71,7 +84,7 @@
         </nav>
     </div>
 </header>
-<main>
+<main class="main-class">
     <?= $content ?? '' ?>
 </main>
 
