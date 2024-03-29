@@ -34,6 +34,7 @@
     }
 </style>
 
+<h4><?= $message ?? ''; ?></h4>
 <div class="login-form">
     <p class="text-login">Регистрация нового пользователя</p>
     <form method="post">
