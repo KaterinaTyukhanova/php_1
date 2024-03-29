@@ -34,13 +34,15 @@
     }
 </style>
 
-<h4><?= $message ?? ''; ?></h4>
+<pre><?= $message ?? ''; ?></pre>
 <div class="login-form">
     <p class="text-login">Регистрация нового пользователя</p>
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <input type="text" name="name" placeholder="Name">
         <input type="text" name="login" placeholder="Login">
         <input type="password" name="password" placeholder="Password">
         <button>Добавить</button>
     </form>
 </div>
+
