@@ -42,21 +42,29 @@
 
 <div class="age">
     <div>
-        <form method="post">
-            <select name="name">
+        <form>
+            <select name="structure">
                 <option disabled selected>Выбор состава</option>
+                <?php
+                foreach ($structures as $structure) {
+                    echo '<option value="'.$structure->id.'">'.$structure->name.'</option>';
+                }
+                ?>
             </select>
             <button>Показать сотрудников</button>
         </form>
     </div>
 
     <div class="sred-age">
-        <p class="sred-age-text">Название состава:</p>
+        <p class="sred-age-text">Список сотрудников по составу:</p>
         <ul>
-            <li>Иванов Иван Иванович</li>
-            <li>Петрова Марина Викторовна</li>
-            <li>Овечкин Анрдрей Михайлович</li>
-            <li>Борисова Алёна Алексеевна</li>
+            <?php
+            if(!empty($workers)):
+                foreach ($workers as $worker) {
+                    echo '<li>'. $worker->surname . ' ' . $worker->name . ' ' . $worker->patronymic .'</li>';
+                }
+            endif
+            ?>
         </ul>
     </div>
 </div>

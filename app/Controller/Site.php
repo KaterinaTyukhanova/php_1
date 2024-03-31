@@ -14,6 +14,8 @@ use Model\Department;
 use Model\Worker;
 use Model\Doljnost;
 use Model\Structure;
+use Model\TypesDepartment;
+
 
 class Site
 {
@@ -105,9 +107,13 @@ class Site
     }
 
 
-    public function addDepartment(): string
+    public function addDepartment(Request $request): string
     {
-        return new View('site.add_department');
+        $typesdepartments = TypesDepartment::all();
+        if ($request->method === 'POST' && Department::create($request->all())) {
+            app()->route->redirect('/hello');
+        }
+        return new View('site.add_department', ['typesdepartments' => $typesdepartments]);
     }
 
     public function attachDepartment(): string
@@ -122,11 +128,27 @@ class Site
 
     public function workerStructure(): string
     {
-        return new View('site.worker_structure');
+        $structures = Structure::all();
+
+        if(!empty($_GET['structure']))
+        {
+            $structure_id = $_GET['structure'];
+            $workers = Worker::where('id_structure', $structure_id)->get();
+            return new View('site.worker_structure', ['structures' => $structures], ['workers' => $workers]);
+        }
+        return new View('site.worker_structure', ['structures' => $structures]);
     }
 
     public function workerDepartment(): string
     {
-        return new View('site.worker_department');
+        $departments = Department::all();
+
+        if(!empty($_GET['department']))
+        {
+            $department_id = $_GET['department'];
+            $workers = Worker::where('id_department', $department_id)->get();
+            return new View('site.worker_department', ['departments' => $departments], ['workers' => $workers]);
+        }
+        return new View('site.worker_department', ['departments' => $departments]);
     }
 }

@@ -37,9 +37,15 @@
 <div class="login-form">
     <p class="text-login">Добавить подразделение</p>
     <form method="post">
+        <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <input type="text" name="name" placeholder="Name">
         <select name="id_type">
             <option disabled selected>Type of department</option>
+            <?php
+            foreach ($typesdepartments as $typesdepartment) {
+                echo '<option value="'.$typesdepartment->id.'">'.$typesdepartment->name.'</option>';
+            }
+            ?>
         </select>
         <button>Добавить</button>
     </form>
