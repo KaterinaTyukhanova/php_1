@@ -14,6 +14,8 @@ use Model\Department;
 use Model\Worker;
 use Model\Doljnost;
 use Model\Structure;
+use Model\TypesDepartment;
+
 
 class Site
 {
@@ -105,9 +107,13 @@ class Site
     }
 
 
-    public function addDepartment(): string
+    public function addDepartment(Request $request): string
     {
-        return new View('site.add_department');
+        $typesdepartments = TypesDepartment::all();
+        if ($request->method === 'POST' && Department::create($request->all())) {
+            app()->route->redirect('/hello');
+        }
+        return new View('site.add_department', ['typesdepartments' => $typesdepartments]);
     }
 
     public function attachDepartment(): string
