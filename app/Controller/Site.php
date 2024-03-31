@@ -2,15 +2,18 @@
 
 namespace Controller;
 
-use Model\Post;
+
 use Src\View;
 use Src\Request;
-use Model\User;
 use Src\Auth\Auth;
-use Model\Department;
-use Model\Worker;
 use Src\Validator\Validator;
 
+use Model\Post;
+use Model\User;
+use Model\Department;
+use Model\Worker;
+use Model\Doljnost;
+use Model\Structure;
 
 class Site
 {
@@ -90,10 +93,17 @@ class Site
         app()->route->redirect('/hello');
     }
 
-    public function addWorker(): string
+    public function addWorker(Request $request): string
     {
-        return new View('site.add_worker');
+        $doljnosts = Doljnost::all();
+        $departments = Department::all();
+        $structures = Structure::all();
+        if ($request->method === 'POST' && Worker::create($request->all())) {
+            app()->route->redirect('/hello');
+        }
+        return new View('site.add_worker', ['departments' => $departments], ['doljnosts' => $doljnosts], ['structures' => $structures]);
     }
+
 
     public function addDepartment(): string
     {

@@ -9,4 +9,16 @@ class Worker extends Model
 {
     use HasFactory;
     public $timestamps = false;
+
+    protected $fillable = [
+        'surname',
+        'name',
+        'patronymic',
+        'gender',
+        'burn_date',
+        'address',
+        'id_doljnost',
+        'id_department',
+        'id_structure'
+    ];
 }

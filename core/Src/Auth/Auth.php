@@ -73,6 +73,4 @@ class Auth
         Session::set('csrf_token', $token);
         return $token;
     }
-
-
 }
