@@ -8,7 +8,6 @@ use Src\Request;
 use Src\Auth\Auth;
 use Src\Validator\Validator;
 
-use Model\Post;
 use Model\User;
 use Model\Department;
 use Model\Worker;
@@ -19,12 +18,6 @@ use Model\TypesDepartment;
 
 class Site
 {
-    public function index(): string
-    {
-        $posts = Post::all();
-        return (new View())->render('site.post', ['posts' => $posts]);
-    }
-
     public function hello(): string
     {
         return new View('site.hello');
@@ -41,14 +34,6 @@ class Site
         $workers = Worker::all();
         return new View('site.all_workers', ['workers' => $workers]);
     }
-
-    //public function signup(Request $request): string
-    //{
-        //if ($request->method === 'POST' && User::create($request->all())) {
-            //app()->route->redirect('/hello');
-        //}
-        //return new View('site.signup');
-    //}
 
     public function signup(Request $request): string
     {
@@ -75,7 +60,6 @@ class Site
         return new View('site.signup');
     }
 
-
     public function login(Request $request): string
     {
         if ($request->method === 'GET') {
@@ -100,12 +84,30 @@ class Site
         $doljnosts = Doljnost::all();
         $departments = Department::all();
         $structures = Structure::all();
-        if ($request->method === 'POST' && Worker::create($request->all())) {
-            app()->route->redirect('/hello');
+        if ($request->method === 'POST') {
+            if($_FILES['image']) {
+                $image_work = $_FILES['image'];
+                $root = app()->settings->getRootPath();
+                $path = $_SERVER['DOCUMENT_ROOT'] . $root . '/public/photo/';
+                $name = mt_rand(0, 1000) . $image_work['name'];
+
+                move_uploaded_file($image_work['tmp_name'], $path . $name);
+
+                $data_of_worker = $request->all();
+                $data_of_worker['image'] = $name;
+
+                if (Worker::create($data_of_worker)) {
+                    app()->route->redirect('/hello');
+                }
+            }
+            else{
+                if (Worker::create($request->all())) {
+                    app()->route->redirect('/hello');
+                }
+            }
         }
         return new View('site.add_worker', ['departments' => $departments], ['doljnosts' => $doljnosts], ['structures' => $structures]);
     }
-
 
     public function addDepartment(Request $request): string
     {

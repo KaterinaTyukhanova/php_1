@@ -19,6 +19,7 @@ class Worker extends Model
         'address',
         'id_doljnost',
         'id_department',
-        'id_structure'
+        'id_structure',
+        'image'
     ];
 }

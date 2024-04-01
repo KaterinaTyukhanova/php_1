@@ -5,6 +5,9 @@
         foreach ($workers as $worker) {
             echo '<li>' . $worker->surname . ' ' . $worker->name . ' ' . $worker->patronymic .
                 ' (' . $worker->gender . ' , ' . $worker->burn_date . ')' . '</li>';
+            if(!empty($worker->image)):
+                echo '<div><img src="public/photo/'.$worker->image.'" width="200" height="200"></div>';
+            endif;
         }
         ?>
     </ul>

@@ -3,6 +3,7 @@
         width: 400px;
         height: 40px;
         border: solid 2px #071F5A;
+        background-color: white;
     }
     button {
         padding: 20px 50px;
@@ -12,7 +13,7 @@
     .login-form{
         width: 100%;
         height: 100%;
-        max-height: 900px;
+        max-height: 950px;
         max-width: 500px;
         border-radius: 34px;
         background-color: #99B3F4;
@@ -36,7 +37,7 @@
 
 <div class="login-form">
     <p class="text-login">Добавить сотрудника</p>
-    <form method="post">
+    <form method="post" enctype="multipart/form-data">
         <input name="csrf_token" type="hidden" value="<?= app()->auth::generateCSRF() ?>"/>
         <input type="text" name="surname" placeholder="Surname">
         <input type="text" name="name" placeholder="Name">
@@ -72,6 +73,7 @@
             }
             ?>
         </select>
+        <input type="file" name="image">
 
         <button>Добавить</button>
     </form>
