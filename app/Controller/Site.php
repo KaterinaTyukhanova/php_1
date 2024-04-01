@@ -116,14 +116,17 @@ class Site
         return new View('site.add_department', ['typesdepartments' => $typesdepartments]);
     }
 
-    public function attachDepartment(): string
-    {
-        return new View('site.attach_to_depart');
-    }
-
     public function averageAge(): string
     {
-        return new View('site.average_age');
+        $departments = Department::all();
+
+        if(!empty($_GET['department']))
+        {
+            $department_id = $_GET['department'];
+            $workers = Worker::where('id_department', $department_id)->get();
+            return new View('site.average_age', ['departments' => $departments], ['workers' => $workers]);
+        }
+        return new View('site.average_age', ['departments' => $departments]);
     }
 
     public function workerStructure(): string

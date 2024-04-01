@@ -46,9 +46,14 @@
 
 <div class="age">
     <div>
-        <form method="post">
-            <select name="name">
+        <form>
+            <select name="department">
                 <option disabled selected>Выбор подразделения</option>
+                <?php
+                foreach ($departments as $department) {
+                    echo '<option value="'.$department->id.'">'.$department->name.'</option>';
+                }
+                ?>
             </select>
             <button>Рассчитать сред.возраст</button>
         </form>
@@ -56,7 +61,23 @@
 
     <div class="sred-age">
         <p class="sred-age-text">Средний возраст подразделения:</p>
-        <div class="age-div">0</div>
+        <?php
+        $now_date = date("Y/m/d");
+        $sum_age = 0;
+        $count_worker = 0;
+        $age = 0;
+        $sred_age = 0;
+        if(!empty($workers)):
+            foreach ($workers as $worker) {
+                $age = (int)$now_date - (int)$worker->burn_date;
+                $count_worker += 1;
+                $sum_age += $age;
+                $age = 0;
+            }
+            $sred_age = $sum_age/$count_worker;
+            echo '<div class="age-div">'.$sred_age.'</div>';
+        endif
+        ?>
     </div>
 </div>
 

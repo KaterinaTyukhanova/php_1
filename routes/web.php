@@ -14,8 +14,6 @@ Route::add(['GET', 'POST'], '/add_worker', [Controller\Site::class, 'addWorker']
     ->middleware('worker');
 Route::add(['GET', 'POST'], '/add_department', [Controller\Site::class, 'addDepartment'])
     ->middleware('worker');
-Route::add(['GET', 'POST'], '/attach_to_depart', [Controller\Site::class, 'attachDepartment'])
-    ->middleware('worker');
 Route::add(['GET', 'POST'], '/average_age', [Controller\Site::class, 'averageAge'])
     ->middleware('worker');
 Route::add(['GET', 'POST'], '/worker_structure', [Controller\Site::class, 'workerStructure'])
