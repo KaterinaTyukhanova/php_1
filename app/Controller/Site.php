@@ -154,4 +154,12 @@ class Site
         }
         return new View('site.worker_department', ['departments' => $departments]);
     }
+
+    public function allWorkerAllDepartment(): string
+    {
+        $departments = Department::all();
+        $workers = Worker::all();
+
+        return new View('site.all_worker_all_department', ['departments' => $departments], ['workers' => $workers]);
+    }
 }

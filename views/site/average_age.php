@@ -73,6 +73,7 @@
                 $count_worker += 1;
                 $sum_age += $age;
                 $age = 0;
+                echo '<p>'. $worker->surname . ' ' . $worker->name . ' ' . '(' . $worker->burn_date .')' . '</p>';
             }
             $sred_age = $sum_age/$count_worker;
             echo '<div class="age-div">'.$sred_age.'</div>';
