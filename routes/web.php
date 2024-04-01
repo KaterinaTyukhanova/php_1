@@ -22,3 +22,5 @@ Route::add(['GET'], '/worker_department', [Controller\Site::class, 'workerDepart
     ->middleware('worker');
 Route::add(['GET'], '/all_worker_all_department', [Controller\Site::class, 'allWorkerAllDepartment'])
     ->middleware('worker');
+Route::add(['GET'], '/search', [Controller\Site::class, 'Search'])
+    ->middleware('worker');

@@ -18,6 +18,7 @@
                 <li><a href="<?= app()->route->getUrl('/worker_structure') ?>" class="text-ssilka">Посмотреть список сотрудников по составам</a></li>
                 <li><a href="<?= app()->route->getUrl('/worker_department') ?>" class="text-ssilka">Посмотреть список сотрудников по определенному подразделению</a></li>
                 <li><a href="<?= app()->route->getUrl('/all_worker_all_department') ?>" class="text-ssilka">Посмотреть список сотрудников по всем подразделениям</a></li>
+                <li><a href="<?= app()->route->getUrl('/search') ?>" class="text-ssilka">Поиск сотрудников</a></li>
             <?php
             endif;
             ?>

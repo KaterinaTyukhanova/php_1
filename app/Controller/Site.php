@@ -162,4 +162,17 @@ class Site
 
         return new View('site.all_worker_all_department', ['departments' => $departments], ['workers' => $workers]);
     }
+
+    public function Search(): string
+    {
+        if(!empty($_GET['search']))
+        {
+            $data_search = $_GET['search'];
+            $workers = Worker::where('name', 'LIKE', "%{$data_search}%")
+                ->orWhere('surname', 'LIKE', "%{$data_search}%")
+                ->orWhere('patronymic', 'LIKE', "%{$data_search}%")->get();
+            return new View('site.search', ['workers' => $workers]);
+        }
+        return new View('site.search');
+    }
 }
